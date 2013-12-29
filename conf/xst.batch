@@ -1,0 +1,9 @@
+run 
+-ifn ../conf/sources.prj 
+-ifmt MIXED
+-top main
+-p xc3s700an-4-fgg484  
+-ofn aqmain 
+-opt_mode Speed 
+-opt_level 1
+#-use_new_parser yes 

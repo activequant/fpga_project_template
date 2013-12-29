@@ -1,0 +1,23 @@
+# On this board, VCCAUX is 3.3 volts.
+CONFIG VCCAUX = "3.3" ;
+# Configure SUSPEND mode options.
+CONFIG ENABLE_SUSPEND = "FILTERED" ;
+# FILTERED is appropriate for use with the switch on this board. Other allowed
+# settings are NO or UNFILTERED.  If set NO, the AWAKE pin becomes general I/O.
+# Please read the FPGA User Guide for more information.
+
+# Configure POST_CRC options.
+
+CONFIG POST_CRC = "DISABLE" ;
+
+# DISABLE the post-configuration CRC checking so INIT_B is available for
+# general I/O after configuration is done.  On this board, INIT_B is used
+# after configuration to control the Platform Flash device.  Other allowed
+# settings are ENABLE.  Please read the FPGA User Guide for more information.
+
+
+
+
+
+##############################################################################
+NET "CLK"       LOC = "E12"  | IOSTANDARD = LVCMOS33 | PERIOD = 20.000 ;
