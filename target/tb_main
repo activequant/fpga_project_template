@@ -1,0 +1,57 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.5 " "(v0_9_5)";
+:vpi_time_precision - 9;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x9031d90 .scope module, "test_main" "test_main" 2 3;
+ .timescale -9 -9;
+v0x902e6f8_0 .var "CLK", 0 0;
+v0x902e778_0 .net "CLK_INV", 0 0, v0x902e698_0; 1 drivers
+S_0x9031e10 .scope module, "mainMod" "main" 2 8, 3 3, S_0x9031d90;
+ .timescale -9 -9;
+v0x9031e90_0 .net "CLK", 0 0, v0x902e6f8_0; 1 drivers
+v0x902e638_0 .alias "CLK_INV", 0 0, v0x902e778_0;
+v0x902e698_0 .var "_clkInv", 0 0;
+E_0x900d3b8 .event edge, v0x9031e90_0;
+    .scope S_0x9031e10;
+T_0 ;
+    %set/v v0x902e698_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_0x9031e10;
+T_1 ;
+    %wait E_0x900d3b8;
+    %load/v 8, v0x9031e90_0, 1;
+    %inv 8, 1;
+    %set/v v0x902e698_0, 8, 1;
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_0x9031d90;
+T_2 ;
+    %set/v v0x902e6f8_0, 0, 1;
+    %end;
+    .thread T_2;
+    .scope S_0x9031d90;
+T_3 ;
+    %vpi_call 2 11 "$dumpfile", "tb_main.vcd";
+    %vpi_call 2 12 "$dumpvars", 3'sb010, S_0x9031d90;
+    %delay 1000, 0;
+    %vpi_call 2 13 "$finish";
+    %end;
+    .thread T_3;
+    .scope S_0x9031d90;
+T_4 ;
+    %vpi_call 2 18 "$display", "Next cycle.";
+    %delay 50, 0;
+    %load/v 8, v0x902e6f8_0, 1;
+    %inv 8, 1;
+    %set/v v0x902e6f8_0, 8, 1;
+    %jmp T_4;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "src/tb_main.v";
+    "src/main.v";
