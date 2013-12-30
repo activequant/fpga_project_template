@@ -8,6 +8,8 @@ module test_main;
     main mainMod(CLK, CLK_INV);
 
     initial begin
+       $dumpfile ("tb_main.vcd");
+       $dumpvars (2, test_main);
        #1000 $finish;
     end
     

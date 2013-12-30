@@ -1,4 +1,4 @@
-
+echo "=== Generic project template ==="
 export ISE_HOME=/opt/Xilinx/14.7/ISE_DS/ISE/bin/lin/
 echo "Using ISE_HOME $ISE_HOME"
 
@@ -11,6 +11,7 @@ rm -rf target
 mkdir target
 
 # got to change into target ... 
+echo "Changing into target folder to start synthesis ..."
 cd target
 
 
@@ -25,4 +26,5 @@ $ISE_HOME/promgen -w -p bin -o $TGT.bin -u 0 bitfile.bit
 $ISE_HOME/impact -batch ../conf/impact.batch
 
 # and back to root folder ... 
+echo "Done, returning to root foler ..."
 cd ..
