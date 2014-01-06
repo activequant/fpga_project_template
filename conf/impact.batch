@@ -7,7 +7,7 @@ setCable -port auto
 ReadIdcode -p 2 
 setMode -pff
 setMode -pff
-addConfigDevice  -name "Untitled" -path "target"
+addConfigDevice  -name "Untitled" -path "."
 setSubmode -pffserial
 setAttribute -configdevice -attr multibootBpiType -value ""
 addDesign -version 0 -name "0"
