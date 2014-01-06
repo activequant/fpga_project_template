@@ -18,6 +18,7 @@ To start:
 Put all source files into the ./src folder. 
 The compile script will create a target folder so that it won't clutter your work directory. 
 The compile script will also flash your FPGA, uncomment the last line if you don't want this behaviour. 
+The scripts expect the top level to be called "main"
 
 In order to use a different Xilinx FPGA board, set the appropriate profile in compile.sh, the rest should work ...
 
