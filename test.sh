@@ -17,11 +17,9 @@ function runtest {
 echo "=========== Test bench runner ============="
 echo "Running tests ... "
 
-
-
 # now, let's run the test cases. 
+# Todo: insert your own test cases here. 
 runtest "tb_main" "src/main.v src/tb_main.v"
-
 
 echo "================= Done ===================="
 

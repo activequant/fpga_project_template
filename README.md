@@ -1,13 +1,22 @@
+== Goal 
+
+Provide an easy starting point for FPGA based applications which interact with their environment through a set of 
+well defined communication interfaces. The FPGA serves as a specialized computing environment. 
+
+== Introduction 
+
 This folder structure contains my project template for Xilinx based projects. 
+
 I use it heavily for my Spartan 3AN projects which I developed on Linux without the ISE IDE. 
-For synthesizing code, Xilinx' tool chain (xst, impact, etc.) is required. 
+
+For synthesizing code, the board vendor's tool chain is needed, for example Xilinx' tool chain (xst, impact, etc.). 
 
 Requirements: 
 
 - iverilog
 - vvp
 - gtkwave (or similar wave viewers)
-- Xilinx toolchain 
+- Xilinx toolchain + Xilinx FPGA board
 
 
 To start: 
@@ -22,10 +31,33 @@ The scripts expect the top level to be called "main"
 
 In order to use a different Xilinx FPGA board, set the appropriate profile in compile.sh, the rest should work ...
 
+So, how does a usual development flow look like? I use KDevelop3 to write my verilog code, then I run consecutively run my 
+test benches until the wave forms match what I expect. Regularly, I run compile.sh to ensure that all code is still 
+synthesizable. 
 
 Fork at will, contributions welcome. 
 
 Happy hacking, 
 Ulrich
+
+== Platform structure
+
+The platform is compound out of several basic components so that it becomes easy to start a new FPGA project with 
+one of the supported development boards. 
+
+At present, this platform is built around light weight verilog components, which are usually visually 
+unit tested during development. It is possible to use these verilog components in conjunction with VHDL, etc.
+
+Central to this platform is a bus system. This bus system is a very simple 80 bit bus, to which bus components connect. 
+These bus components are relatively simple components, behind which arbitrarily complex modules reside. 
+
+It has a communication layer, which is used for control commands and for generic data exchange with the outside world, 
+such as an RS232 or a USB communication port. In the future, this should contain some easy-to-configure support 
+for a network interface. 
+
+
+
+
+
 
 
