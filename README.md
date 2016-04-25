@@ -39,25 +39,3 @@ Fork at will, contributions welcome.
 
 Happy hacking, 
 Ulrich
-
-== Platform structure
-
-The platform is compound out of several basic components so that it becomes easy to start a new FPGA project with 
-one of the supported development boards. 
-
-At present, this platform is built around light weight verilog components, which are usually visually 
-unit tested during development. It is possible to use these verilog components in conjunction with VHDL, etc.
-
-Central to this platform is a bus system. This bus system is a very simple 80 bit bus, to which bus components connect. 
-These bus components are relatively simple components, behind which arbitrarily complex modules reside. 
-
-It has a communication layer, which is used for control commands and for generic data exchange with the outside world, 
-such as an RS232 or a USB communication port. In the future, this should contain some easy-to-configure support 
-for a network interface. 
-
-
-
-
-
-
-
